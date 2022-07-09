@@ -1,4 +1,6 @@
 import { useState } from "react";
+import DisplayEntries from "./components/DisplayEntries";
+import NewEntry from "./components/NewEntry";
 
 const App = () => {
   const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
@@ -6,16 +8,13 @@ const App = () => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
-      <form>
-        <div>
-          name: <input />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <h2>Numbers</h2>
+      <NewEntry
+        newName={newName}
+        setNewName={setNewName}
+        persons={persons}
+        setPersons={setPersons}
+      />
+      <DisplayEntries persons={persons} />
       ...
     </div>
   );
